@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
     val realUsername = "username"
     val realPassword = "password"
 
-    var localUsername = ""
-    var localPassword = ""
+    var tmpUsername = ""
+    var tmpPassword = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,19 +25,35 @@ class MainActivity : AppCompatActivity() {
 
         openFrag(AuthorizationFragment.newInstance())
 
+        dataModel.firstname.value = "Artem"
+        dataModel.lastname.value = "Kutasevich"
+        dataModel.middlename.value = "Gennadevich"
+        dataModel.university.value = "BSUIR"
+        dataModel.faculty.value = "FITY"
+        dataModel.course.value = "3"
+
         dataModel.username.observe(this, {
-            localUsername = it
+            tmpUsername = it
             authorization()
         })
 
         dataModel.password.observe(this, {
-            localPassword = it
+            tmpPassword = it
             authorization()
+        })
+
+        dataModel.showEditFragment.observe(this, {
+            if (it == true) {
+                openFrag(EditAccountFragment.newInstance())
+            }
+            if (it == false) {
+                openFrag(AccountFragment.newInstance())
+            }
         })
     }
 
     private fun authorization() {
-        if ((localUsername == realUsername) && (localPassword == realPassword)) {
+        if ((tmpUsername == realUsername) && (tmpPassword == realPassword)) {
             openFrag(AccountFragment.newInstance())
         } else {
             val text = "Something bad"

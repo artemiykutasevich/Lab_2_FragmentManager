@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#03A9F4"
+    tools:context=".EditAccountFragment">
+
+    <EditText
+        android:id="@+id/firstnameEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="firstname"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/lastnameEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="lastname"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/middlenameEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="middle"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/universityEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="university"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/facultyEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="faculty"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/courseEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="course"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="32dp"
+        android:text="save" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginRight="80dp"
+        android:text="back" />
+</FrameLayout>
