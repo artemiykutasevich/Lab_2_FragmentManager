@@ -1,16 +1,16 @@
 package com.example.lab_2_fragmentmanager
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.example.lab_2_fragmentmanager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private val dataModel: DataModel by viewModels()
+    private lateinit var activeFragment: ActiveFragmentEnum
 
     val realUsername = "username"
     val realPassword = "password"
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        openFrag(AuthorizationFragment.newInstance())
+        openFrag(ActiveFragmentEnum.authorization)
 
         dataModel.firstname.value = "Artem"
         dataModel.lastname.value = "Kutasevich"
@@ -44,17 +44,26 @@ class MainActivity : AppCompatActivity() {
 
         dataModel.showEditFragment.observe(this, {
             if (it == true) {
-                openFrag(EditAccountFragment.newInstance())
+                openFrag(ActiveFragmentEnum.editAccount)
             }
             if (it == false) {
-                openFrag(AccountFragment.newInstance())
+                openFrag(ActiveFragmentEnum.account)
             }
         })
     }
 
+    override fun onBackPressed() {
+        if (activeFragment == ActiveFragmentEnum.editAccount) {
+            println("я дошёл")
+            openFrag(ActiveFragmentEnum.account)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     private fun authorization() {
         if ((tmpUsername == realUsername) && (tmpPassword == realPassword)) {
-            openFrag(AccountFragment.newInstance())
+            openFrag(ActiveFragmentEnum.account)
         } else {
             val text = "Something bad"
             val duration = Toast.LENGTH_SHORT
@@ -64,10 +73,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun openFrag(f: Fragment) {
+    private fun openFrag(f: ActiveFragmentEnum) {
+        activeFragment = f
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.place_holder, f)
+            .replace(R.id.place_holder, f.fragment)
             .commit()
     }
 }

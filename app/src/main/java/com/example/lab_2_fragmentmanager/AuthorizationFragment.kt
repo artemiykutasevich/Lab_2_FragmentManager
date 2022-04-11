@@ -25,9 +25,9 @@ class AuthorizationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.signInButton.setOnClickListener {
             dataModel.username.value = binding.usernameTextField.text.toString()
-            println(binding.usernameTextField.text.toString())
+            //println(binding.usernameTextField.text.toString())
             dataModel.password.value = binding.passwordTextField.text.toString()
-            println(binding.passwordTextField.text.toString())
+            //println(binding.passwordTextField.text.toString())
         }
     }
 
