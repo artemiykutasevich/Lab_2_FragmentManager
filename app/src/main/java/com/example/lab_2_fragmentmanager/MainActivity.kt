@@ -54,8 +54,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (activeFragment == ActiveFragmentEnum.editAccount) {
-            println("я дошёл")
             openFrag(ActiveFragmentEnum.account)
+        } else if (activeFragment == ActiveFragmentEnum.account) {
+            openFrag(ActiveFragmentEnum.authorization)
         } else {
             super.onBackPressed()
         }
